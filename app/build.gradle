@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'de.mannodermaus.android-junit5'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -65,6 +66,7 @@ dependencies {
 
     // image
     implementation "com.github.bumptech.glide:glide:4.11.0"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "com.github.bumptech.glide:compiler:4.10.0"
 
     // retrofit
@@ -74,9 +76,9 @@ dependencies {
     implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
 
     // room
-    implementation "androidx.room:room-runtime:2.2.5"
-    implementation "androidx.room:room-ktx:2.2.5"
-    kapt "androidx.room:room-compiler:2.2.5"
+    implementation "androidx.room:room-runtime:2.2.6"
+    implementation "androidx.room:room-ktx:2.2.6"
+    kapt "androidx.room:room-compiler:2.2.6"
 
     // navigation
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.2"
