@@ -3,17 +3,26 @@ package com.example.android_mvvm_template
 import android.os.Bundle
 import androidx.navigation.fragment.findNavController
 import com.example.android_mvvm_template.databinding.FragmentFirstBinding
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
-class FirstFragment : BaseFragment<FragmentFirstBinding>(R.layout.fragment_first) {
-    private lateinit var binding: FragmentFirstBinding
+class FirstFragment : BaseFragment<FragmentFirstBinding, MainViewModel>(R.layout.fragment_first) {
+    override val viewModel: MainViewModel by sharedViewModel()
 
     override fun onViewCreated(binding: FragmentFirstBinding, savedInstanceState: Bundle?) {
-        this.binding = binding
-
         binding.button.setOnClickListener {
             val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment()
             findNavController().navigate(action)
         }
     }
+
+    override fun initBinding(binding: FragmentFirstBinding) {
+        binding.run {
+            lifecycleOwner = viewLifecycleOwner
+        }
+    }
+
+    override fun subscribeViewModel(viewModel: MainViewModel) {
+    }
+
 }

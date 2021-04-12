@@ -2,6 +2,7 @@ package com.example.android_mvvm_template
 
 import android.app.Application
 import com.example.android_mvvm_template.di.getNetworkModule
+import com.example.android_mvvm_template.di.getPresentationModule
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy
@@ -18,7 +19,8 @@ class MyApplication : Application() {
             androidContext(this@MyApplication)
             modules(
                 listOf(
-                    getNetworkModule("www.example.com")
+                    getNetworkModule("www.example.com"),
+                    getPresentationModule()
                 )
             )
         }
@@ -27,7 +29,7 @@ class MyApplication : Application() {
             AndroidLogAdapter(
                 PrettyFormatStrategy.newBuilder()
                     .showThreadInfo(true)
-                    .methodCount(1)
+                    .methodCount(2)
                     .build()
             )
         )
